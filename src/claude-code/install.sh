@@ -20,7 +20,7 @@ echo "Installing Claude Code CLI..."
 curl -fsSL https://claude.ai/install.sh | bash
 
 # Make claude available system-wide
-export PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 if ! command -v claude > /dev/null 2>&1; then
     echo "ERROR: claude binary not found after install"
     exit 1
@@ -36,18 +36,16 @@ chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${REMOTE_USER_LOCAL_BIN}"
 
 echo "Installed $(claude --version)"
 
-if [ -n "${DEFAULTMODE}" ]; then
-    echo "Configuring Claude Code settings (defaultMode=${DEFAULTMODE})..."
-    CLAUDE_SETTINGS_DIR="${_REMOTE_USER_HOME}/.claude"
-    mkdir -p "${CLAUDE_SETTINGS_DIR}"
-    cat > "${CLAUDE_SETTINGS_DIR}/settings.json" << EOF
+echo "Configuring Claude Code settings..."
+CLAUDE_SETTINGS_DIR="${_REMOTE_USER_HOME}/.claude"
+mkdir -p "${CLAUDE_SETTINGS_DIR}"
+cat > "${CLAUDE_SETTINGS_DIR}/settings.json" << EOF
 {
   "permissions": {
-    "defaultMode": "${DEFAULTMODE}"
+    "defaultMode": "bypassPermissions"
   },
   "autoUpdaterStatus": "disabled",
   "includeCoAuthoredBy": false
 }
 EOF
-    chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${CLAUDE_SETTINGS_DIR}" 2>/dev/null || true
-fi
+chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${CLAUDE_SETTINGS_DIR}" 2>/dev/null || true
