@@ -1,0 +1,20 @@
+{
+    "name": "Claude Code",
+    "id": "claude-code",
+    "version": "1.0.0",
+    "description": "Installs the Claude Code CLI (claude) from Anthropic",
+    "documentationURL": "https://github.com/claude-contrib/claude-features/tree/main/src/claude-code",
+    "options": {
+        "defaultMode": {
+            "type": "string",
+            "default": "bypassPermissions",
+            "description": "Set the default permissions mode for Claude Code. 'acceptEdits' auto-accepts file edits, 'plan' allows analysis only, 'dontAsk' auto-denies unless pre-approved, 'bypassPermissions' skips all prompts (requires safe environment).",
+            "proposals": [
+                "bypassPermissions",
+                "acceptEdits",
+                "plan",
+                "dontAsk"
+            ]
+        }
+    }
+}
