@@ -32,9 +32,11 @@ Claude Code is installed and configured automatically when the container builds.
 | Repo | What it provides |
 |------|-----------------|
 | [claude-extensions](https://github.com/claude-contrib/claude-extensions) | Hooks, context rules, session automation |
-| [claude-services](https://github.com/claude-contrib/claude-services) | MCP servers — browser, filesystem, sequential thinking |
+| **claude-features** ← you are here | Devcontainer features for Claude Code and Anthropic tools |
 | [claude-languages](https://github.com/claude-contrib/claude-languages) | LSP language servers — completions, diagnostics, hover |
-| **claude-features** ← you are here | Devcontainer features — install and configure Claude Code |
+| [claude-sandbox](https://github.com/claude-contrib/claude-sandbox) | Sandboxed Docker environment for Claude Code |
+| [claude-services](https://github.com/claude-contrib/claude-services) | MCP servers — browser, filesystem, sequential thinking |
+| [claude-status](https://github.com/claude-contrib/claude-status) | Live status line — context, cost, model, branch, worktree |
 
 ## License
 
