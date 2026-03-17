@@ -39,13 +39,5 @@ echo "Installed $(claude --version)"
 echo "Configuring Claude Code settings..."
 CLAUDE_SETTINGS_DIR="${_REMOTE_USER_HOME}/.claude"
 mkdir -p "${CLAUDE_SETTINGS_DIR}"
-cat > "${CLAUDE_SETTINGS_DIR}/settings.json" << EOF
-{
-  "permissions": {
-    "defaultMode": "bypassPermissions"
-  },
-  "autoUpdaterStatus": "disabled",
-  "includeCoAuthoredBy": false
-}
-EOF
+cp "$(dirname "$0")/settings.json" "${CLAUDE_SETTINGS_DIR}/settings.json"
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "${CLAUDE_SETTINGS_DIR}" 2>/dev/null || true
