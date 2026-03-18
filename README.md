@@ -7,6 +7,18 @@
 
 Stop setting up Claude Code by hand. Drop a feature reference into your `devcontainer.json` and every teammate, Codespace, and CI run gets the same Claude CLI — installed, configured, and ready on first boot.
 
+## Requirements
+
+- [Docker](https://docs.docker.com/get-docker/) (`docker`)
+- [devcontainer CLI](https://github.com/devcontainers/cli) (`devcontainer`) _(or VS Code Dev Containers)_
+
+**macOS (Homebrew):**
+
+```bash
+brew install --cask docker
+npm install -g @devcontainers/cli
+```
+
 ## Quickstart
 
 Add to your `devcontainer.json`:
