@@ -2,6 +2,7 @@
 
 > One line in `devcontainer.json`. Claude Code, ready to go.
 
+[![Test](https://github.com/claude-contrib/claude-features/actions/workflows/test.yaml/badge.svg)](https://github.com/claude-contrib/claude-features/actions/workflows/test.yaml)
 [![Release](https://img.shields.io/github/v/release/claude-contrib/claude-features)](https://github.com/claude-contrib/claude-features/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
