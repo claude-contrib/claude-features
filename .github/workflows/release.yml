@@ -16,7 +16,7 @@ jobs:
       releases_created: ${{ steps.release.outputs.releases_created }}
       pr: ${{ steps.release.outputs.pr }}
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@4.4.0
         id: release
         with:
           config-file: .github/config/release-please-config.json
@@ -31,12 +31,12 @@ jobs:
         id: pr
         run: echo "branch=$(echo '${{ needs.release-please.outputs.pr }}' | jq -r '.headBranchName')" >> $GITHUB_OUTPUT
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@6.0.2
         with:
           ref: ${{ steps.pr.outputs.branch }}
 
       - name: Generate docs
-        uses: devcontainers/action@v1
+        uses: devcontainers/action@1.4.3
         with:
           generate-docs: "true"
           base-path-to-features: "./src"
@@ -57,12 +57,12 @@ jobs:
     if: ${{ needs.release-please.outputs.releases_created == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@6.0.2
         with:
           ref: main
 
       - name: Publish features
-        uses: devcontainers/action@v1
+        uses: devcontainers/action@1.4.3
         with:
           publish-features: "true"
           base-path-to-features: "./src"
