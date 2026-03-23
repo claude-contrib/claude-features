@@ -2,6 +2,7 @@
 
 > One line in `devcontainer.json`. Claude Code, ready to go.
 
+[![Claude](https://img.shields.io/badge/Claude-AI-black?logo=anthropic)](https://claude.ai)
 [![Test](https://github.com/claude-contrib/claude-features/actions/workflows/test.yaml/badge.svg)](https://github.com/claude-contrib/claude-features/actions/workflows/test.yaml)
 [![Validate](https://github.com/claude-contrib/claude-features/actions/workflows/validate.yml/badge.svg)](https://github.com/claude-contrib/claude-features/actions/workflows/validate.yml)
 [![Release](https://img.shields.io/github/v/release/claude-contrib/claude-features)](https://github.com/claude-contrib/claude-features/releases/latest)
