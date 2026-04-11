@@ -1,0 +1,55 @@
+name: CI
+
+permissions:
+  contents: write
+  id-token: write
+  pull-requests: write
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check shell script syntax
+        run: bash -n src/claude-code/install.sh
+      - name: Install latest devcontainer CLI
+        run: npm install -g @devcontainers/cli
+      - name: Test claude-code feature
+        run: devcontainer features test -f claude-code -i mcr.microsoft.com/devcontainers/base:ubuntu .
+
+  validate:
+    name: Validate devcontainer-feature.json files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate devcontainer-feature.json files
+        uses: devcontainers/action@v1
+        with:
+          validate-only: "true"
+          base-path-to-features: "./src"
+
+  release:
+    needs: [build, validate]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Create Release PR
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          manifest-file: .github/config/release-please-manifest.json
+          config-file: .github/config/release-please-config.json
+          target-branch: main
