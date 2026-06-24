@@ -16,7 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Check shell script syntax
         run: bash -n src/claude-code/install.sh
       - name: Install latest devcontainer CLI
@@ -28,7 +28,7 @@ jobs:
     name: Validate devcontainer-feature.json files
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Validate devcontainer-feature.json files
         uses: devcontainers/action@v1
         with:
@@ -44,7 +44,7 @@ jobs:
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Create Release PR
         id: release
