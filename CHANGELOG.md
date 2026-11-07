@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/claude-contrib/claude-features/compare/v1.1.2...v1.1.3) (2026-11-07)
+
+
+### Bug Fixes
+
+* **ci:** merge with the App token so main gets its CI run ([#43](https://github.com/claude-contrib/claude-features/issues/43)) ([0650436](https://github.com/claude-contrib/claude-features/commit/0650436519f382c9a06c6861f00e9765f7f70f26))
+
 ## [1.1.2](https://github.com/claude-contrib/claude-features/compare/v1.1.1...v1.1.2) (2026-10-01)
 
 
